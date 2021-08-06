@@ -1,0 +1,218 @@
+/*reset start*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  outline: none;
+  text-decoration: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button,
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+a img {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button,
+input,
+textarea,
+select {
+  appearance: none !important;
+  border-radius: 0;
+}
+
+/*reset end*/
+#root {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+#root form {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 100vh;
+}
+
+#root form #input-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+#root form #input-container p {
+  color: black;
+  font-style: italic;
+  font-size: 24px;
+  padding: 18px;
+  text-align: left;
+  margin-left: 55px;
+}
+
+#root form #input-container .input {
+  width: 80%;
+  font-size: inherit;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: blue 0px 0px 0px 2px inset, white 5px -5px 0px -3px, #4a569d 5px -5px, white 10px -10px 0px -3px, #dc2424 10px -10px;
+}
+
+#root form #input-container textarea.input {
+  min-height: 180px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#root form #file-container {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 40vw;
+  height: 50vh;
+  color: black;
+  font-style: italic;
+}
+
+#root form #file-container p.title {
+  font-size: 24px;
+  padding: 20px;
+  text-align: right;
+  margin-right: 55px;
+}
+
+#root form #file-container p#ready {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  padding-bottom: 20px;
+}
+
+#root form #file-container p {
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+#root form #file-container #drop-region {
+  position: absolute;
+  top: 67px;
+  right: 0;
+  width: 32vw;
+  height: calc(100% - 67px);
+}
+
+#root form #file-container .effect-7,
+#root form #file-container .effect-8,
+#root form #file-container .effect-9 {
+  padding: 7px 14px 9px;
+  transition: 0.4s;
+}
+
+#root form #file-container .effect-8 ~ .focus-border:before,
+#root form #file-container .effect-8 ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #dc2424;
+  transition: 0.3s;
+}
+
+#root form #file-container .effect-8 ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+}
+
+#root form #file-container .effect-8 ~ .focus-border i:before,
+#root form #file-container .effect-8 ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 67px;
+  left: 4vw;
+  width: 2px;
+  height: 0;
+  background-color: #4a569d;
+  transition: 0.4s;
+}
+
+#root form #file-container .effect-8 ~ .focus-border i:after {
+  left: auto;
+  right: 4vw;
+  top: auto;
+  bottom: 67px;
+}
+
+#root form #file-container .effect-8:hover ~ .focus-border:before,
+#root form #file-container .effect-8:hover ~ .focus-border:after {
+  width: 100%;
+  transition: 0.3s;
+}
+
+#root form #file-container .effect-8:hover ~ .focus-border i:before,
+#root form #file-container .effect-8:hover ~ .focus-border i:after {
+  height: 100%;
+  transition: 0.4s;
+}
+
+#root form button#send {
+  position: absolute;
+  top: 60vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  width: 300px;
+  padding: 20px 0px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 5pt;
+  background-image: linear-gradient(to right, #dc2424 0%, #4a569d 51%, #dc2424 100%);
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  transition: 1s;
+}
+
+#root form button#send:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+/*# sourceMappingURL=style.css.map */

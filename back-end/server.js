@@ -1,49 +1,32 @@
 const express = require('express')
 const path = require('path')
 const server = express();
-//const bodyParser = require('body-parser');
-let multer  = require('multer');
-const { runInNewContext } = require('vm');
+const formidable = require('formidable');
 
-let upload  = multer({ storage: multer.memoryStorage() });
-
-// server.use(bodyParser.json());
-// server.use(bodyParser.urlencoded({ extended: true }));
-
+server.use("/public",express.static(path.join(__dirname, "../front-end/public/")));
 
 server.get('/', (req, res) => {
-  res.sendFile( 
-    path.join(__dirname, '../front-end/index.html')
-    )
-  });
+  res.sendFile(
+      path.join(__dirname, '../front-end/index.html')
+    );
+});
   
-  server.use("/public",express.static(path.join(__dirname, "../front-end/public/")));
-  
-  // server.use(function (req, res, next) {
-  //   req.headers['content-type'] = 'application/json';
-  //   next();
-  // });
-  // use the above to change the request header for incoming post requests
-  
-  server.use(express.json());
-  server.use(express.urlencoded({ extended: true }))
-
-// server.post('/', (req, res) => {
-//   //req.header("Content-Type", "application/json")
-//   console.log('body: ', req.body);
-//   console.log(req.body.firstname)
-// })
-
-server.post('/', upload.none(), (req, res) => {
-  //parse the json received in the body and console log the received information
-  // pay special attention to: 
-  // req.on('data', (data) => {
-  //   console.log(data.toString());
-  // });
-    console.log(req.body);
-    res.send("welcome")
+server.post('/', (req, res, next) => {
+  const form = formidable({ multiples: true, uploadDir: path.join(__dirname, '/upload') });
+ 
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.json({ fields, files });
+    console.log(fields.userJson);
+    const userFields = JSON.parse(fields.userJson);
+    console.log(userFields.firstname)
   });
 
+  res.send("minden oke")
+});
 
 const port = 6789;
 server.listen(port, () => {
