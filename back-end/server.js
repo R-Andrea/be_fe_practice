@@ -19,13 +19,16 @@ server.post('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.json({ fields, files });
-    console.log(fields.userJson);
-    const userFields = JSON.parse(fields.userJson);
-    console.log(userFields.firstname)
-  });
+    //res.json({ fields, files });
 
-  res.send("minden oke")
+    const fileNames = files.userFile.map((file) =>  file.name)
+    console.log(fileNames)
+    res.json(fileNames)
+    //const userFields = JSON.parse(fields.userJson);
+    
+  });
+  
+  //res.send("minden oke")
 });
 
 const port = 6789;
