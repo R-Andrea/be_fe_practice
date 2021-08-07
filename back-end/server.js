@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const server = express();
 const formidable = require('formidable');
+const { FILE } = require('dns');
 
 server.use("/public",express.static(path.join(__dirname, "../front-end/public/")));
 
@@ -20,15 +21,19 @@ server.post('/', (req, res, next) => {
       return;
     }
     //res.json({ fields, files });
+    let fileNames;
+    if (files.userFile.length >1 ) {
 
-    const fileNames = files.userFile.map((file) =>  file.name)
+      fileNames = files.userFile.map((file) =>  file.name)
+    } else {
+      fileNames = files.userFile.name
+    }
     console.log(fileNames)
     res.json(fileNames)
     //const userFields = JSON.parse(fields.userJson);
     
   });
   
-  //res.send("minden oke")
 });
 
 const port = 6789;

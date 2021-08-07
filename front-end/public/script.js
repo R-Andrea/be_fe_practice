@@ -108,7 +108,7 @@ function loadEvent() {
 
         })
         .then(response => response.text())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
     };
 
     window.addEventListener("submit", postToClick);
