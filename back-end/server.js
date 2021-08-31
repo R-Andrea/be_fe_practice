@@ -20,6 +20,7 @@ server.post('/', (req, res, next) => {
       next(err);
       return;
     }
+    console.log(typeof(fields.userJson))
     //res.json({ fields, files });
     let fileNames;
     if (files.userFile.length >1 ) {
@@ -36,7 +37,7 @@ server.post('/', (req, res, next) => {
   
 });
 
-const port = 6789;
+const port = 6788;
 server.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });

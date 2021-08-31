@@ -84,12 +84,12 @@ function loadEvent() {
         
         const inputs = e.target.querySelectorAll(".input"), values = {};
        
-
+        console.log(typeof(inputs))
         for (const input of inputs) {
             values[`${input.name}`] = input.value;
         }
         
-        console.log(values);
+        console.log(typeof(values));
         console.log(userFiles);
         const fd = new FormData();
         fd.append("userJson", JSON.stringify(values));
@@ -98,7 +98,7 @@ function loadEvent() {
             fd.append('userFile', file, file.name);
 
         }
-
+     
         fetch('/', {
                 method: 'Post',
                 // headers: {
